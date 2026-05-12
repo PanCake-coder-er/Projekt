@@ -1,33 +1,58 @@
-<form>
-  <label>Imie: </label>
-  <input tpye=text id=imie placeholder=imie name=imie><br>
+<form id="problemForm">
+  <label>Imię: </label>
+  <input type="text" id="imie" name="imie" required><br>
+  
   <label>Nazwisko: </label>
-  <input tpye=text id=nazwisko placeholder=nazwisko name=nazwisko><br>
+  <input type="text" id="nazwisko" name="nazwisko" required><br>
+  
   <label>E-Mail: </label>
-  <input tpye=text id=email placeholder=email name=email><br>
+  <input type="email" id="email" name="email" required><br>
+  
   <label>Opis Problemu: </label>
-  <input tpye=text id=opis placeholder=opis name=opis>
+  <input type="text" id="opis" name="opis" required><br>
+
   <label>ID: </label>
-  <input tpye=text id=id placeholder=id name=id>
+  <input type="text" id="id_display" name="id" readonly style="background-color: #eee;"><br><br>
+
+  <button type="submit">Wyślij zgłoszenie</button>
 </form>
+
 <script>
   let currentId = 1;
+
   function updateIdField() {
-    document.getElementById('id').value = currentId;
+    document.getElementById('id_display').value = currentId;
   }
+
   updateIdField();
 
   const form = document.getElementById('problemForm');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-    const imie = document.getElementById('imie').value;
-    console.log("Zapisano osobę o ID:", currentId, "Imię:", imie);
-    currentId++;
-    form.reset();
 
-    updateIdField();
-    
-    alert("Dane wysłane! Następne wolne ID: " + currentId);
+    const payload = {
+      id: currentId,
+      imie: document.getElementById('imie').value,
+      nazwisko: document.getElementById('nazwisko').value,
+      email: document.getElementById('email').value,
+      opis: document.getElementById('opis').value
+    };
+
+    fetch("https://hook.eu1.make.com/3c5y57it2qcxaadb2oxypsh1h09kxv8g", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (response.ok) {
+        currentId++;
+        form.reset();
+        updateIdField();
+      }
+    })
+    .catch(error => console.error(error));
   });
 </script>
