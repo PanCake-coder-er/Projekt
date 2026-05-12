@@ -6,8 +6,11 @@ function updateFields() {
     
     if (idField) idField.value = currentId;
     if (dateField) {
-        const dzisiaj = new Date().toISOString().split('T')[0];
-        dateField.value = dzisiaj;
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        dateField.value = `${year}-${month}-${day}`;
     }
 }
 
