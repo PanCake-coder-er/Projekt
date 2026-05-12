@@ -2,30 +2,29 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Twoja Strona</title>
 </head>
 <body>
-<h1> Formularz do zgloszen! </h1>
-<form id="problemForm">
-  <label>Imię: </label>
-  <input type="text" id="imie" required><br>
-  
-  <label>Nazwisko: </label>
-  <input type="text" id="nazwisko" required><br>
-  
-  <label>E-Mail: </label>
-  <input type="email" id="email" required><br>
-  
-  <label>Opis Problemu: </label>
-  <input type="text" id="opis" required><br>
+    <h1> Formularz do zgloszen! </h1>
+    <form id="problemForm">
+        <label>Imię: </label>
+        <input type="text" id="imie" name="imie" required><br>
+        
+        <label>Nazwisko: </label>
+        <input type="text" id="nazwisko" name="nazwisko" required><br>
+        
+        <label>E-Mail: </label>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label>Opis Problemu: </label>
+        <input type="text" id="opis" name="opis" required><br>
 
-  <label>ID: </label>
-  <input type="text" id="id_display" readonly style="background-color: #eee;"><br><br>
+        <label>ID: </label>
+        <input type="text" id="id_display" name="id" readonly style="background-color: #eee;"><br><br>
 
-  <button type="submit" id="submitBtn">Wyślij zgłoszenie</button>
-</form>
-<script src="java.js"></script>
+        <button type="submit">Wyślij zgłoszenie</button>
+    </form>
+    <script src="java.js"></script>
 </body>
 </html>
