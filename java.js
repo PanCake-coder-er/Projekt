@@ -5,7 +5,10 @@ function updateFields() {
     const dateField = document.getElementById('data_display');
     
     if (idField) idField.value = currentId;
-    if (dateField) dateField.value = new Date().toLocaleString("pl-PL");
+    if (dateField) {
+        const dzisiaj = new Date().toISOString().split('T')[0];
+        dateField.value = dzisiaj;
+    }
 }
 
 updateFields();
