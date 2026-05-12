@@ -1,8 +1,11 @@
 let currentId = 1;
 
 function updateFields() {
-    document.getElementById('id_display').value = currentId;
-    document.getElementById('data_display').value = new Date().toLocaleString("pl-PL");
+    const idField = document.getElementById('id_display');
+    const dateField = document.getElementById('data_display');
+    
+    if (idField) idField.value = currentId;
+    if (dateField) dateField.value = new Date().toLocaleString("pl-PL");
 }
 
 updateFields();
