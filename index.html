@@ -1,0 +1,33 @@
+<form>
+  <label>Imie: </label>
+  <input tpye=text id=imie placeholder=imie name=imie><br>
+  <label>Nazwisko: </label>
+  <input tpye=text id=nazwisko placeholder=nazwisko name=nazwisko><br>
+  <label>E-Mail: </label>
+  <input tpye=text id=email placeholder=email name=email><br>
+  <label>Opis Problemu: </label>
+  <input tpye=text id=opis placeholder=opis name=opis>
+  <label>ID: </label>
+  <input tpye=text id=id placeholder=id name=id>
+</form>
+<script>
+  let currentId = 1;
+  function updateIdField() {
+    document.getElementById('id').value = currentId;
+  }
+  updateIdField();
+
+  const form = document.getElementById('problemForm');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const imie = document.getElementById('imie').value;
+    console.log("Zapisano osobę o ID:", currentId, "Imię:", imie);
+    currentId++;
+    form.reset();
+
+    updateIdField();
+    
+    alert("Dane wysłane! Następne wolne ID: " + currentId);
+  });
+</script>
