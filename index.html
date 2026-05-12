@@ -14,7 +14,7 @@
   <label>ID: </label>
   <input type="text" id="id_display" readonly style="background-color: #eee;"><br><br>
 
-  <button type="submit">Wyślij zgłoszenie</button>
+  <button type="submit" id="submitBtn">Wyślij zgłoszenie</button>
 </form>
 
 <script>
@@ -41,21 +41,20 @@
 
     fetch("https://hook.eu1.make.com/3c5y57it2qcxaadb2oxypsh1h09kxv8g", {
       method: "POST",
-      mode: "no-cors",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
     })
-    .then(() => {
-      alert("Zgłoszenie wysłane!");
+    .then(response => {
       currentId++;
       form.reset();
       updateIdField();
+      alert("Wysłano poprawnie!");
     })
     .catch(error => {
-      console.error("Szczegóły błędu:", error);
-      alert("Nadal występuje błąd. Sprawdź konsolę (F12).");
+      console.error(error);
+      alert("Błąd wysyłki.");
     });
   });
 </script>
