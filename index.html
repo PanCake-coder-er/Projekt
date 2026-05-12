@@ -31,13 +31,6 @@
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const payload = {
-      id: currentId,
-      imie: document.getElementById('imie').value,
-      nazwisko: document.getElementById('nazwisko').value,
-      email: document.getElementById('email').value,
-      opis: document.getElementById('opis').value
-    };
 
     fetch("https://hook.eu1.make.com/3c5y57it2qcxaadb2oxypsh1h09kxv8g", {
       method: "POST",
