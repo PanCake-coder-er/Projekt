@@ -1,10 +1,11 @@
 let currentId = 1;
 
-function updateIdField() {
+function updateFields() {
     document.getElementById('id_display').value = currentId;
+    document.getElementById('data_display').value = new Date().toLocaleString("pl-PL");
 }
 
-updateIdField();
+updateFields();
 
 const form = document.getElementById('problemForm');
 
@@ -22,7 +23,7 @@ form.addEventListener('submit', function(event) {
         alert("Wysłano!");
         currentId++;
         form.reset();
-        updateIdField();
+        updateFields();
     })
     .catch(err => console.error(err));
 });
