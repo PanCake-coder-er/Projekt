@@ -1,20 +1,20 @@
 <form id="problemForm">
   <label>Imię: </label>
-  <input type="text" id="imie" name="imie" required><br>
+  <input type="text" id="imie" required><br>
   
   <label>Nazwisko: </label>
-  <input type="text" id="nazwisko" name="nazwisko" required><br>
+  <input type="text" id="nazwisko" required><br>
   
   <label>E-Mail: </label>
-  <input type="email" id="email" name="email" required><br>
+  <input type="email" id="email" required><br>
   
   <label>Opis Problemu: </label>
-  <input type="text" id="opis" name="opis" required><br>
+  <input type="text" id="opis" required><br>
 
   <label>ID: </label>
-  <input type="text" id="id_display" name="id" readonly><br><br>
+  <input type="text" id="id_display" readonly><br><br>
 
-  <button type="submit">Wyślij zgłoszenie</button>
+  <button type="submit" id="submitBtn">Wyślij zgłoszenie</button>
 </form>
 
 <script>
@@ -47,12 +47,14 @@
       body: JSON.stringify(payload)
     })
     .then(response => {
-      if (response.ok) {
-        currentId++;
-        form.reset();
-        updateIdField();
-      }
+      currentId++;
+      form.reset();
+      updateIdField();
+      alert("Wysłano poprawnie!");
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+      console.error(error);
+      alert("Błąd wysyłki.");
+    });
   });
 </script>
