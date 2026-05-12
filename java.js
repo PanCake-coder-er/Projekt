@@ -1,4 +1,4 @@
-let currentId = 1;
+let currentId = localStorage.getItem('lastId') ? parseInt(localStorage.getItem('lastId')) : 1;
 
 function updateFields() {
     const idField = document.getElementById('id_display');
@@ -31,6 +31,7 @@ form.addEventListener('submit', function(event) {
     .then(() => {
         alert("Wysłano!");
         currentId++;
+        localStorage.setItem('lastId', currentId);
         form.reset();
         updateFields();
     })
