@@ -4,11 +4,10 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-// Konfiguracja bazy danych (VM2)
 $host = '192.168.8.197';
 $dbname = 'firma';
 $user = 'admin';
-$pass = 'TwojeHaslo123!'; // zmień na swoje hasło
+$pass = 'adminadmin'; 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
