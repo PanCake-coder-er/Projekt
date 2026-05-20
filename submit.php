@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-$host = '192.168.8.197';
+$host = '192.168.8.202';
 $dbname = 'firma';
 $user = 'admin';
 $pass = 'adminadmin'; 
